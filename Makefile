@@ -14,7 +14,7 @@ deps-init:
 	$(GOPATH)/bin/govendor init
 
 deps-get: deps-init
-	@$(GOPATH)/bin/govendor get github.com/lovoo/nsq_exporter
+	@$(GOPATH)/bin/govendor get github.com/fgbs/nsq_exporter
 
 .PHONY: clean
 clean:
