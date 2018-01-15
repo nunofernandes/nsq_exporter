@@ -27,4 +27,4 @@ test:
 .PHONY: release-build
 release-build:
 	@go get -u github.com/mitchellh/gox
-	@$(GOX) $(GOX_ARGS) github.com/lovoo/nsq_exporter
+	@$(GOX) $(GOX_ARGS) github.com/fgbs/nsq_exporter
