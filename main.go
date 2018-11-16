@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/fgbs/nsq_exporter/collector"
+	"github.com/nunofernandes/nsq_exporter/collector"
 
 	"github.com/prometheus/client_golang/prometheus"
 )
@@ -43,6 +43,9 @@ func main() {
 	prometheus.MustRegister(ex)
 
 	http.Handle(*metricsPath, prometheus.Handler())
+    http.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(`ok`))
+	})
 	if *metricsPath != "" && *metricsPath != "/" {
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte(`<html>
